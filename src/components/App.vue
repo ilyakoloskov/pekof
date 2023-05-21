@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ message }}</h1>
+  <h1 class="red">{{ message }}</h1>
   <button @click="count++">Count is: {{ count }}</button>
 </template>
 
@@ -14,8 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
-button {
-  font-weight: bold;
-}
+<style lang="sass">
+h1
+  background-color: red
 </style>

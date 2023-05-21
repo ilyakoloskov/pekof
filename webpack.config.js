@@ -51,7 +51,23 @@ module.exports = {
         // postcss-preset-env - плагин для PostCSS, который конвертирует современный CSS в код, понятный большинству браузеров, включением необходимых полифилов.
         // css-loader загрузчик CSS-файлов
         // style-loader загрузчик стилей в DOM
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+          // {
+          //   loader: 'sass-loader',
+          //   options: {
+          //     indentedSyntax: true,
+          //     // sass-loader >= 8
+          //     sassOptions: {
+          //       indentedSyntax: true,
+          //     },
+          //   },
+          // },
+        ],
         generator: {
           filename: path.join('assets/', '[name].[contenthash][ext]'),
         },
