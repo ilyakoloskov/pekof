@@ -1,6 +1,11 @@
 <template>
-  <h1 class="red">{{ message }}</h1>
-  <button @click="count++">Count is: {{ count }}</button>
+  <header class="header">
+    <div class="container">
+      <div class="header__wrapper">ewr</div>
+    </div>
+  </header>
+  <main class="main"></main>
+  <footer class="footer"></footer>
 </template>
 
 <script>
@@ -14,7 +19,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-h1
-  background-color: red
+<style>
+
 </style>
