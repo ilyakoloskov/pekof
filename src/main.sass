@@ -1,27 +1,70 @@
-
 @import "./assets/sass/reset"
 @import "./assets/fonts/fonts"
 
-$font-size: 1rem
-$font-color: lch(28 99 35)
+
+// VARIABLES
+:root 
+  // COLOR
+  --color-primary:#0A1E32
+  --color-secondary: #fff
+  //FONT-SIZE
+  --fs-small: 12px
+  --fs-regular: 16px
+  --fs-medium: 18px
+  --fs-large: 24px
+  //FONT-WEIGHT
+  --fw-regular: 400
+  --fw-medium: 500
+  --fw-bold: 700
+
+#app
+  display: grid
+  grid-template-rows: max-content
+  min-height: 100vh
 
 html
-  font-family: 'Montserrat'
+  font-family: 'Ubuntu'
+  font-size: var(--fs-regular)
 
 .container
   max-width: 1400px
   margin: 0 auto
 
+// HEADER
 .header
+  align-self: start
+  border-bottom: 1px solid var(--color-primary)
   &__wrapper
     display: flex
     justify-content: space-between
     align-items: center
     padding: 25px 0
+  
+// MAIN-SCREEN
+.main-screen
+  margin-bottom: 112px
+  &__bg
+    object-fit: cover
+    width: 100%
+    max-height: 505px
 
+// CARDS
+.cards
+  margin-bottom: 112px
+  &__wrapper
+    display: grid
+    grid-template-columns: repeat(4,1fr)
+
+//FOOTER
 .footer
-  background: #0A1E32
+  background: var(--color-primary)
+  align-self: end
   &__wrapper
     display: flex
     justify-content: space-between
     padding: 35px 0
+  &-link
+    color: var(--color-secondary)
+  &__phone
+    font-size: var(--fs-large)
+    font-weight: var(--fw-medium)
