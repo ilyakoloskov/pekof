@@ -1,6 +1,8 @@
 <template>
   <!-- MAIN-SCREEN -->
   <section class="main-screen">
+    {{ count }}
+    <button @click="counter">CLICK</button>
     <img class="main-screen__bg" src="../assets/images/main-screen-bg.png" alt="" />
   </section>
 
@@ -18,7 +20,15 @@ export default {
   data() {
     return {
       cards: data.cards,
+      title: window.state.favorites.title,
+      count: window.state.favorites.count,
     }
+  },
+  methods: {
+    counter() {
+      window.state.favorites.addCount()
+      console.log('count:', window.state.favorites.count)
+    },
   },
   components: {
     Cards,

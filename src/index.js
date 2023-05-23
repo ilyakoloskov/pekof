@@ -12,6 +12,11 @@ app.mount('#app')
 const state = reactive({
   favorites: {
     title: 'hello, im global state',
+    count: 5,
+    addCount: function () {
+      this.count++
+      console.log(this.count)
+    },
   },
 })
 
