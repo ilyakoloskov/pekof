@@ -5,7 +5,7 @@
         <!-- <router-link href="logo">logo</router-link>
         <router-link href="#">cart</router-link> -->
         <router-link to="/">logo</router-link>
-        <router-link to="/card">card</router-link>
+        <router-link to="/single">card</router-link>
       </div>
     </div>
   </header>
@@ -30,7 +30,7 @@
         <nav class="footer__nav nav">
           <ul class="nav__ul">
             <li class="nav__li">
-              <router-link to="/cart">cart</router-link>
+              <router-link to="/single">cart</router-link>
               <!-- <a href="#">Избранное</a> -->
             </li>
           </ul>

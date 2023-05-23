@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Catalog from "./Catalog.vue"
-import Favorites from "./Favorites.vue"
-import Single from "./Single.vue"
+import Catalog from "./views/Catalog.vue"
+import Favorites from "./views/Favorites.vue"
+import Single from "./views/Single.vue"
 
 export default createRouter({
     history: createWebHashHistory(),
