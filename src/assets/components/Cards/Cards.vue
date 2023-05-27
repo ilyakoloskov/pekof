@@ -3,7 +3,7 @@
   <section class="cards">
     <div class="container">
       <div class="cards__wrapper">
-        <Card v-for="card in cards" :key="card.title" :card="card" />
+        <Card v-for="(card, index) in cards" :key="index" :card="card" />
       </div>
     </div>
   </section>
@@ -15,7 +15,7 @@ export default {
   name: 'Cards',
   props: {
     cards: {
-      type: Array,
+      type: Object,
     },
   },
   components: {

@@ -2,7 +2,7 @@
   <article class="card">
     <h4 class="card__name">{{ card.title }}</h4>
     <div class="card__price">{{ card.price }} руб.</div>
-    <button>Добавить в избранное</button>
+    <button @click="addFavorites">Добавить в избранное</button>
   </article>
 </template>
 
@@ -16,6 +16,11 @@ export default {
   },
   data() {
     return {}
+  },
+  methods: {
+    addFavorites: function () {
+      window.state.favorites.addFavorites()
+    },
   },
 }
 </script>

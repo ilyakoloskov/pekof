@@ -1,7 +1,8 @@
 <template>
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" @click="showState">
     <div class="container">
+      {{ cards }}
       <div class="header__wrapper">
         <router-link to="/"><img src="../images/logo.svg" alt="Пекоф" /></router-link>
         <router-link to="/favorites"
@@ -16,7 +17,14 @@
 export default {
   name: 'Header',
   data() {
-    return {}
+    return {
+      // cards: window.store.state.data,
+    }
+  },
+  methods: {
+    showState: function () {
+      // console.log(window.state.favorites.cards)
+    },
   },
 }
 </script>
