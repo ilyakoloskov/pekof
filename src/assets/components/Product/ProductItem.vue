@@ -52,7 +52,6 @@ export default {
     addToFavorites(product) {
       this.$emit('addToFavorites', product)
       this.isFavorites = true
-      console.log(this.typeIcon.add)
     },
     removeFromFavorites(product) {
       this.$emit('removeFromFavorites', product)

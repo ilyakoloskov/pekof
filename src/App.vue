@@ -44,11 +44,12 @@ export default {
     },
     addToFavorites(product) {
       if (this.favorites.length) {
-        this.favorites.map((item) => {
-          if (item.id === product.id) {
-            alert('Товар уже добавлен')
-          }
-        })
+        let isFavorites = this.favorites.includes(product)
+        if (!isFavorites) {
+          this.favorites.push(product)
+          console.log(`Товар ${product.id} добавлен в корзину`)
+          console.table(product)
+        }
       } else {
         this.favorites.push(product)
         console.log(`Товар ${product.id} добавлен в корзину`)
