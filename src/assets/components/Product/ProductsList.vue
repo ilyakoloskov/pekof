@@ -7,8 +7,11 @@
           v-for="product in products"
           :key="product.id"
           :product="product"
+          :typeIcon="typeIcon"
           @addToFavorites="this.$emit('addToFavorites', product)"
-        />
+          @removeFromFavorites="this.$emit('removeFromFavorites', product)"
+        >
+        </product-item>
       </div>
     </div>
   </section>
@@ -18,20 +21,18 @@
 <script>
 import ProductItem from './ProductItem.vue'
 export default {
-  name: 'product-list',
+  name: 'products-list',
   props: {
     products: {
       type: Array,
     },
+    typeIcon: Object,
+  },
+  data() {
+    return {}
   },
   components: {
     ProductItem,
-  },
-  data() {
-    // console.log(addToFavorites)
-    return {
-      // cards: store.state.data.cards
-    }
   },
   methods: {},
 }

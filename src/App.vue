@@ -8,6 +8,7 @@
         :products="products"
         :favorites="favorites"
         @addToFavorites="addToFavorites"
+        @removeFromFavorites="removeFromFavorites"
       ></router-view>
     </keep-alive>
   </main>
@@ -42,11 +43,21 @@ export default {
       }
     },
     addToFavorites(product) {
-      this.favorites.push(product)
-      console.log(`Товар ${product.id} добавлен в корзину`)
-      console.table(product)
+      if (this.favorites.length) {
+        this.favorites.map((item) => {
+          if (item.id === product.id) {
+            alert('Товар уже добавлен')
+          }
+        })
+      } else {
+        this.favorites.push(product)
+        console.log(`Товар ${product.id} добавлен в корзину`)
+        console.table(product)
+      }
     },
-    removeFromFavorites() {},
+    removeFromFavorites(product) {
+      this.favorites = this.favorites.filter((item) => item.id !== product.id)
+    },
   },
   mounted() {
     this.fetchProducts()

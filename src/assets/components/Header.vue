@@ -7,7 +7,7 @@
         <router-link to="/favorites">
           <div class="favorites-link">
             <img src="../images/favorites.svg" alt="Избранное" />
-            <div class="favorites-link__count">
+            <div v-if="favorites.length !== 0" class="favorites-link__count">
               {{ favorites.length }}
             </div>
           </div>

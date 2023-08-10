@@ -6,12 +6,15 @@
 :root 
   // COLOR
   --color-primary:#0A1E32
-  --color-secondary: #fff
+  --color-secondary: #E5E5E5
+  --color-alternate: #E5E5E5
+  --color-link-hover: #464C58
   //FONT-SIZE
   --fs-small: 12px
   --fs-regular: 16px
   --fs-medium: 18px
-  --fs-large: 24px
+  --fs-large: 32px
+  --fs-h1: 40px
   //FONT-WEIGHT
   --fw-regular: 400
   --fw-medium: 500
@@ -26,12 +29,27 @@ html
   font-family: 'Ubuntu'
   font-size: var(--fs-regular)
 
+.btn
+  background: none
+  border: none
+  cursor: pointer
+  &__icon
+    width: 20px
+    height: 18px
+
+.title
+  font-size: var(--fs-h1)
+  font-weight: var(--fw-medium)
+  margin-bottom: 32px
+
 .container
-  max-width: 1400px
+  max-width: 1430px
+  padding: 0 15px
   margin: 0 auto
 
 .header 
   align-self: start
+  border-bottom: 1px solid var(--color-primary)
   &__wrapper
     display: flex
     justify-content: space-between
@@ -67,16 +85,36 @@ html
   &__wrapper
     display: grid
     grid-template-columns: repeat(4,1fr)
-    gap: 140px
+    gap: 40px
 
 
 .card
   max-width: 320px
+  max-height: 450px
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  text-align: center
+  gap: 16px
+  padding: 20px
+  position: relative
+  cursor: pointer
   &:hover
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15)
+  &__btn
+    position: absolute
+    right:  20px
+    top: 20px
   &__image
     width: 100%
+    align-self: center
+    max-width: 170px
     object-fit: cover
+  &__name
+    font-size: var(--fs-small)
+  &__price
+    font-size: var(--fs-regular)
+    font-weight: var(--fw-bold)
 
 //FOOTER
 .footer
@@ -91,3 +129,58 @@ html
   &__phone
     font-size: var(--fs-large)
     font-weight: var(--fw-medium)
+
+.breadcrumb
+  margin: 32px 0 16px
+  &__list
+    display: flex
+  &__item
+    &::after
+      content: ('›')
+      vertical-align: middle
+      margin: -2px 5px 0 5px
+      display: inline-block
+    &:last-child
+      &::after
+        display: none
+  &__link 
+    font-size: var(--fs-small)
+    color: var(--color-primary)
+    &_active
+      border-bottom: 1px solid var(--color-link-hover)
+
+.link
+  &:hover
+    color: var(--color-link-hover)
+    border-bottom: 1px solid var(--color-link-hover)
+
+.empty
+  &__title
+    padding-top: 123px
+    text-transform: uppercase
+    font-size: var(--color-link-hover)
+    font-weight: var(--fw-medium)
+    text-align: center
+
+.single
+  margin-top: 16px
+  &__wrapper
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 40px
+  &__inner
+    display: flex
+    flex-direction: column
+    gap: 24px
+  &__image
+    max-width: 680px
+    object-fit: cover
+  &__title
+    margin: 0
+  &__description
+    font-size: var(--fs-regular)
+    line-height: 1.5
+  &__price
+    color: var(--color-primary)
+    font-size: var(--fs-large)
+    font-weight: var(--fw-bold)
