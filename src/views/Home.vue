@@ -40,6 +40,7 @@ export default {
     removeFromFavorites(product) {
       this.$emit('removeFromFavorites', product)
     },
+    emits: ['addToFavorites', 'removeFromFavorites'],
   },
 }
 </script>

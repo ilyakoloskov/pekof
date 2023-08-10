@@ -20,10 +20,10 @@
     </div>
   </section>
   <ProductsList
+    v-else
     :products="favorites"
     :typeIcon="typeIcon"
     @removeFromFavorites="removeFromFavorites"
-    v-else
   />
 </template>
 
@@ -54,5 +54,6 @@ export default {
       this.$emit('removeFromFavorites', product)
     },
   },
+  emits: ['removeFromFavorites'],
 }
 </script>

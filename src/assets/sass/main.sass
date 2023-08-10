@@ -163,7 +163,7 @@ html
     text-align: center
 
 .single
-  margin-top: 16px
+  margin: 16px 0 112px 
   &__wrapper
     display: grid
     grid-template-columns: repeat(2, 1fr)
@@ -174,6 +174,7 @@ html
     gap: 24px
   &__image
     max-width: 680px
+    max-height: 715px
     object-fit: cover
   &__title
     margin: 0
@@ -184,3 +185,32 @@ html
     color: var(--color-primary)
     font-size: var(--fs-large)
     font-weight: var(--fw-bold)
+  &__btn
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 10px
+    background: none
+    padding: 20px
+    max-width: 200px
+    border: 1px solid var(--color-primary)
+    border-radius: 5px
+    background: #fff
+    cursor: pointer
+    &-text
+      font-weight: var(--fw-bold)
+      text-transform: uppercase
+      font-size: var(--fs-regular)
+    &-icon
+      width: 20px
+      height: 18px
+      &_hover
+        display: none
+    &_active
+      &:hover
+        .single__btn-icon
+          display: none
+        .single__btn-icon_hover
+          display: block
+    &_disabled
+      opacity: 0.5

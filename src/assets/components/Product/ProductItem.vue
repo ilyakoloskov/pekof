@@ -2,21 +2,25 @@
   <div class="card">
     <app-button
       class="card__btn"
-      :type="typeIcon.add"
       v-if="!isFavorites"
-      @click.prevent="addToFavorites"
+      :typeIcon="typeIcon.add"
+      @click.prevent="addToFavorites(product)"
     >
     </app-button>
 
     <app-button
       class="card__btn"
       v-else
-      :type="typeIcon.remove"
-      @click.prevent="removeFromFavorites"
+      :typeIcon="typeIcon.remove"
+      @click.prevent="removeFromFavorites(product)"
     >
     </app-button>
 
-    <app-button :type="typeIcon.close" class="card__btn" @click.prevent="removeFromFavorites">
+    <app-button
+      :typeIcon="typeIcon.close"
+      class="card__btn"
+      @click.prevent="removeFromFavorites(product)"
+    >
     </app-button>
 
     <img
@@ -24,6 +28,7 @@
       class="card__image"
       :src="product.image"
     />
+
     <h4 class="card__name">{{ product.title }}</h4>
     <div class="card__price">{{ product.price }} руб.</div>
   </div>
@@ -58,6 +63,6 @@ export default {
       this.isFavorites = false
     },
   },
-  computed: {},
+  emits: ['addToFavorites', 'removeFromFavorites'],
 }
 </script>

@@ -43,17 +43,16 @@ export default {
       }
     },
     addToFavorites(product) {
+      console.log(product)
       if (this.favorites.length) {
         let isFavorites = this.favorites.includes(product)
         if (!isFavorites) {
           this.favorites.push(product)
-          console.log(`Товар ${product.id} добавлен в корзину`)
-          console.table(product)
+        } else {
+          this.removeFromFavorites(product)
         }
       } else {
         this.favorites.push(product)
-        console.log(`Товар ${product.id} добавлен в корзину`)
-        console.table(product)
       }
     },
     removeFromFavorites(product) {

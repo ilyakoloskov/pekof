@@ -16,7 +16,23 @@ export default createRouter({
         breadcrumb: 'Главная',
       },
     },
-    { name: 'favorites', path: '/favorites', component: Favorites, props: true },
-    { name: 'product', path: '/product/:id?', component: Single, props: true },
+    {
+      name: 'favorites',
+      path: '/favorites',
+      component: Favorites,
+      props: true,
+      meta: {
+        breadcrumb: 'Избранное',
+      },
+    },
+    {
+      name: 'product',
+      path: '/product/:id?',
+      component: Single,
+      props: true,
+      meta: {
+        breadcrumb: 'Какой-то товар',
+      },
+    },
   ],
 })

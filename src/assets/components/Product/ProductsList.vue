@@ -8,8 +8,8 @@
           :key="product.id"
           :product="product"
           :typeIcon="typeIcon"
-          @addToFavorites="this.$emit('addToFavorites', product)"
-          @removeFromFavorites="this.$emit('removeFromFavorites', product)"
+          @addToFavorites="addToFavorites(product)"
+          @removeFromFavorites="removeFromFavorites(product)"
         >
         </product-item>
       </div>
@@ -34,6 +34,14 @@ export default {
   components: {
     ProductItem,
   },
-  methods: {},
+  methods: {
+    addToFavorites(product) {
+      this.$emit('addToFavorites', product)
+    },
+    removeFromFavorites(product) {
+      this.$emit('removeFromFavorites', product)
+    },
+  },
+  emits: ['addToFavorites', 'removeFromFavorites'],
 }
 </script>
