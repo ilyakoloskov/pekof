@@ -10,7 +10,7 @@
 
     <app-button
       class="card__btn"
-      v-else
+      v-else-if="isFavorites"
       :typeIcon="typeIcon.remove"
       @click.prevent="removeFromFavorites(product)"
     >
@@ -18,6 +18,7 @@
 
     <app-button
       :typeIcon="typeIcon.close"
+      v-else
       class="card__btn"
       @click.prevent="removeFromFavorites(product)"
     >
