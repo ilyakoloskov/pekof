@@ -49,7 +49,12 @@ export default {
       }
     },
     addToFavorites(product) {
-      this.favorites.push(product)
+      let isAdd = this.favorites.includes(product)
+      if(isAdd){
+        alert('Товар уже добавлен в избранное')
+      }else{
+        this.favorites.push(product)
+      }
     },
     removeFromFavorites(product) {
       this.favorites = this.favorites.filter((item) => item.id !== product.id)
