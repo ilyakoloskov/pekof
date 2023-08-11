@@ -1,11 +1,10 @@
 @import "./reset"
 @import "../fonts/fonts"
 
-
 // VARIABLES
-:root 
+:root
   // COLOR
-  --color-primary:#0A1E32
+  --color-primary: #0A1E32
   --color-secondary: #E5E5E5
   --color-alternate: #E5E5E5
   --color-link-hover: #464C58
@@ -47,18 +46,22 @@ html
   padding: 0 15px
   margin: 0 auto
 
-.header 
+.header
+  position: sticky
+  top: 0
   align-self: start
   border-bottom: 1px solid var(--color-primary)
+  background: #fff
+  z-index: 1
   &__wrapper
     display: flex
     justify-content: space-between
     align-items: center
     padding: 25px 0
-  
+
 .favorites-link
   position: relative
-  &__count 
+  &__count
     position: absolute
     right: -40%
     top: 0
@@ -84,11 +87,13 @@ html
   margin-bottom: 112px
   &__wrapper
     display: grid
-    grid-template-columns: repeat(4,1fr)
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+    justify-items: center
     gap: 40px
 
-
 .card
+  width: 100%
+  box-sizing: border-box
   max-width: 320px
   max-height: 450px
   display: flex
@@ -103,7 +108,7 @@ html
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15)
   &__btn
     position: absolute
-    right:  20px
+    right: 20px
     top: 20px
   &__image
     width: 100%
@@ -143,7 +148,7 @@ html
     &:last-child
       &::after
         display: none
-  &__link 
+  &__link
     font-size: var(--fs-small)
     color: var(--color-primary)
     &_active
@@ -163,7 +168,7 @@ html
     text-align: center
 
 .single
-  margin: 16px 0 112px 
+  margin: 16px 0 112px
   &__wrapper
     display: grid
     grid-template-columns: repeat(2, 1fr)
@@ -173,9 +178,10 @@ html
     flex-direction: column
     gap: 24px
   &__image
+    width: 100%
     max-width: 680px
     max-height: 715px
-    object-fit: cover
+    object-fit: contain
   &__title
     margin: 0
   &__description
@@ -214,3 +220,35 @@ html
           display: block
     &_disabled
       opacity: 0.5
+
+.preloader
+  max-width: 50px
+  margin: 0 auto
+@media screen and (max-width: 768px)
+  :root
+    //FONT-SIZE
+    --fs-small: 12px
+    --fs-regular: 14px
+    --fs-medium: 16px
+    --fs-large: 18px
+    --fs-h1: 21px
+
+  .main-screen
+    &__bg
+      min-height: 40vh
+  .cards
+    margin-bottom: 40px
+  .single
+    margin-bottom: 40px
+    &__wrapper
+      grid-template-columns: 1fr
+    &__image
+      max-height: 415px
+    &__btn
+      width: 100%
+      max-width: initial
+  .footer
+    &__wrapper
+      gap: 10px
+      flex-direction: column
+      align-items: center

@@ -31,7 +31,7 @@ export default createRouter({
       component: Single,
       props: true,
       meta: {
-        breadcrumb: 'Какой-то товар',
+        breadcrumb: 'Товар',
       },
     },
   ],

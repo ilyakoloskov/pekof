@@ -15,13 +15,12 @@
   </div>
   <section class="single">
     <div class="container">
-      <div class="single__wrapper">
+      <div v-if="isFetching" class="single__wrapper">
         <img class="single__image" :src="product.image" />
         <div class="single__inner">
           <h1 class="single__title title">{{ product.title }}</h1>
           <p class="single__description">{{ product.description }}</p>
           <div class="single__price">{{ product.price }}</div>
-
           <button
             class="single__btn"
             :class="{ single__btn_active: btnIsActive, single__btn_disabled: !btnIsActive }"
@@ -34,13 +33,9 @@
             />
             <span class="single__btn-text">избранное</span>
           </button>
-
-          <!-- <button v-else class="single__btn single__btn_disabled" disabled>
-            <img class="single__btn-icon" src="../assets/images/favorites_disabled.svg" />
-            <span class="single__btn-text">избранное</span>
-          </button> -->
         </div>
       </div>
+      <app-preloader v-else></app-preloader>
     </div>
   </section>
 </template>
@@ -49,11 +44,13 @@
 <script>
 import axios from 'axios'
 import AppButton from '../assets/components/UI/AppButton.vue'
+import AppPreloader from '../assets/components/UI/AppPreloader.vue'
 
 export default {
   name: 'Single',
   components: {
     AppButton,
+    AppPreloader
   },
   props: {
     favorites: {
@@ -65,19 +62,23 @@ export default {
     return {
       product: Object,
       btnIsActive: true,
+      isFetching: false
     }
   },
   methods: {
     async fetchProduct() {
-      try {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products/${this.$route.params.id}`
-        )
-        this.product = response.data
-        console.log(response.data)
-        console.log(this.product, ' product')
-      } catch (e) {
-        alert(e)
+      if(!this.isFetching){
+        try {
+          const response = await axios.get(
+            `https://fakestoreapi.com/products/${this.$route.params.id}`
+          )
+          this.product = response.data
+          console.log(response.data)
+          console.log(this.product, ' product')
+          this.isFetching = true
+        } catch (e) {
+          alert(e)
+        }
       }
     },
     addToFavorites(product) {

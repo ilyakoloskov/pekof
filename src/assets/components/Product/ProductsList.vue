@@ -1,7 +1,7 @@
 <template>
   <!-- CARDS -->
   <section class="cards">
-    <div class="container">
+    <div  class="container">
       <div class="cards__wrapper">
         <product-item
           v-for="product in products"
@@ -20,6 +20,7 @@
 
 <script>
 import ProductItem from './ProductItem.vue'
+
 export default {
   name: 'products-list',
   props: {
@@ -32,7 +33,7 @@ export default {
     return {}
   },
   components: {
-    ProductItem,
+    ProductItem
   },
   methods: {
     addToFavorites(product) {

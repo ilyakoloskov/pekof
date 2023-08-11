@@ -7,6 +7,7 @@
         v-bind="routeParams"
         :products="products"
         :favorites="favorites"
+        :isFetching="isFetching"
         @addToFavorites="addToFavorites"
         @removeFromFavorites="removeFromFavorites"
       ></router-view>
@@ -28,18 +29,23 @@ export default {
     return {
       products: [],
       favorites: [],
-      isProductsLoad: false,
+      isFetching: false,
     }
   },
   methods: {
     async fetchProducts() {
-      try {
-        const response = await axios.get('https://fakestoreapi.com/products')
-        this.products = response.data
-        console.log('Получаем список товаров с сервера')
-        console.table(response.data)
-      } catch (e) {
-        alert(e)
+      if(!this.isFetching){
+        try {
+          const response = await axios.get('https://fakestoreapi.com/products')
+          this.products = response.data
+          console.log('Получаем список товаров с сервера')
+          console.table(response.data)
+          this.isFetching = true
+        } catch (e) {
+          alert(e)
+        }
+      }else{
+        this.isFetching = false
       }
     },
     addToFavorites(product) {
