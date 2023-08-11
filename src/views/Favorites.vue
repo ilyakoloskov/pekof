@@ -1,16 +1,7 @@
 <template>
   <div class="page-info">
     <div class="container">
-      <nav class="breadcrumb">
-        <ul class="breadcrumb__list">
-          <li class="breadcrumb__item">
-            <router-link class="breadcrumb__link link" to="/Home">Главная</router-link>
-          </li>
-          <li class="breadcrumb__item">
-            <router-link class="breadcrumb__link link" to="/Home">Главная</router-link>
-          </li>
-        </ul>
-      </nav>
+      <app-breadcrumb></app-breadcrumb>
       <h1 class="title">Избранное</h1>
     </div>
   </div>
@@ -19,18 +10,20 @@
       <div class="empty__title">список избранного пуст</div>
     </div>
   </section>
-  <ProductsList
+  <app-products-list
     v-else
     :products="favorites"
     :typeIcon="typeIcon"
     @removeFromFavorites="removeFromFavorites"
-  />
+  >
+  </app-products-list>
 </template>
 
 <style></style>
 
 <script>
-import ProductsList from '../assets/components/Product/ProductsList.vue'
+import AppProductsList from '../assets/components/Product/AppProductsList.vue'
+import AppBreadcrumb from '../assets/components/UI/AppBreadcrumb.vue'
 
 export default {
   name: 'Favorites',
@@ -47,7 +40,8 @@ export default {
     }
   },
   components: {
-    ProductsList,
+    AppProductsList,
+    AppBreadcrumb
   },
   methods: {
     removeFromFavorites(product) {

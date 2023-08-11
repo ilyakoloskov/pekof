@@ -30,7 +30,7 @@
     />
 
     <h4 class="card__name">{{ product.title }}</h4>
-    <div class="card__price">{{ product.price }} руб.</div>
+    <div class="card__price">{{ product.price }} $</div>
   </div>
 </template>
 
@@ -38,7 +38,7 @@
 import AppButton from '../UI/AppButton.vue'
 
 export default {
-  name: 'product-item',
+  name: 'app-product-item',
   components: {
     AppButton,
   },

@@ -1,5 +1,5 @@
 <template>
-  <Header :favorites="favorites" />
+  <app-header :favorites="favorites" />
   <!-- MAIN -->
   <main class="main">
     <keep-alive>
@@ -13,17 +13,17 @@
       ></router-view>
     </keep-alive>
   </main>
-  <Footer />
+  <app-footer />
 </template>
 
 <script>
-import Header from './assets/components/Header.vue'
-import Footer from './assets/components/Footer.vue'
+import AppHeader from './assets/components/AppHeader.vue'
+import AppFooter from './assets/components/AppFooter.vue'
 import axios from 'axios'
 export default {
   components: {
-    Header,
-    Footer,
+    AppHeader,
+    AppFooter,
   },
   data() {
     return {
@@ -49,17 +49,7 @@ export default {
       }
     },
     addToFavorites(product) {
-      console.log(product)
-      if (this.favorites.length) {
-        let isFavorites = this.favorites.includes(product)
-        if (!isFavorites) {
-          this.favorites.push(product)
-        } else {
-          this.removeFromFavorites(product)
-        }
-      } else {
-        this.favorites.push(product)
-      }
+      this.favorites.push(product)
     },
     removeFromFavorites(product) {
       this.favorites = this.favorites.filter((item) => item.id !== product.id)

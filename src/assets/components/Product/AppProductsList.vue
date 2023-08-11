@@ -3,7 +3,7 @@
   <section class="cards">
     <div  class="container">
       <div class="cards__wrapper">
-        <product-item
+        <app-product-item
           v-for="product in products"
           :key="product.id"
           :product="product"
@@ -11,7 +11,7 @@
           @addToFavorites="addToFavorites(product)"
           @removeFromFavorites="removeFromFavorites(product)"
         >
-        </product-item>
+        </app-product-item>
       </div>
     </div>
   </section>
@@ -19,10 +19,10 @@
 <style></style>
 
 <script>
-import ProductItem from './ProductItem.vue'
+import AppProductItem from './AppProductItem.vue'
 
 export default {
-  name: 'products-list',
+  name: 'app-products-list',
   props: {
     products: {
       type: Array,
@@ -33,7 +33,7 @@ export default {
     return {}
   },
   components: {
-    ProductItem
+    AppProductItem
   },
   methods: {
     addToFavorites(product) {

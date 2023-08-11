@@ -1,16 +1,7 @@
 <template>
   <div class="page-info">
     <div class="container">
-      <nav class="breadcrumb">
-        <ul class="breadcrumb__list">
-          <li class="breadcrumb__item">
-            <router-link class="breadcrumb__link link" to="/Home">Главная</router-link>
-          </li>
-          <li class="breadcrumb__item">
-            <router-link class="breadcrumb__link link" to="/Home">Главная</router-link>
-          </li>
-        </ul>
-      </nav>
+      <app-breadcrumb></app-breadcrumb>
     </div>
   </div>
   <section class="single">
@@ -20,7 +11,7 @@
         <div class="single__inner">
           <h1 class="single__title title">{{ product.title }}</h1>
           <p class="single__description">{{ product.description }}</p>
-          <div class="single__price">{{ product.price }}</div>
+          <div class="single__price">{{ product.price }} $</div>
           <button
             class="single__btn"
             :class="{ single__btn_active: btnIsActive, single__btn_disabled: !btnIsActive }"
@@ -45,12 +36,14 @@
 import axios from 'axios'
 import AppButton from '../assets/components/UI/AppButton.vue'
 import AppPreloader from '../assets/components/UI/AppPreloader.vue'
+import AppBreadcrumb from '../assets/components/UI/AppBreadcrumb.vue'
 
 export default {
   name: 'Single',
   components: {
     AppButton,
-    AppPreloader
+    AppPreloader,
+    AppBreadcrumb
   },
   props: {
     favorites: {
